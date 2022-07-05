@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+:root {
+    --primary-c: #38AECB;
+    --secondary-c: #2E3550;
+}
+
+
+
+
+.primary-font-f {
+    /* font-family: 'Gentium Book Plus', serif; */
+    font-family: 'calibari';
+}
+
+
+.secondary-bg {
+    background-color: var(--secondary-c);
+}
+
+.primary-font-s {
+    font-size: 24px;
+}
+
+.primary-bg {
+    background-color: var(--primary-c);
+}
+
+.secondary-bg {
+    background-color: var(--secondary-c);
+}
+
+.primary-color {
+    color: var(--primary-c);
+}
+
+.secondary-color {
+    color: var(--secondary-c);
+}
+
+
+/* Hero Section */
+.hero-section {
+    background-image: url('../assets/hero.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 30px;
+}
+
+.hero-section h1 {
+    line-height: 110%;
+    font-weight: 500;
+}
+
+
+
+/* Gallery Slider Css */
+.slick-arrow {
+    display: none;
+    visibility: hidden;
+    background-color: orange;
+}
+
+.slick-slide {
+    margin: 0 10px;
+}
+
+
+.slick-dots {
+    display: flex;
+    justify-content: center;
+}
+
+.slick-dots li button {
+    color: white;
+    outline: none;
+    margin: 0 10px;
+    ;
+}
+
+.slick-dots li::after {
+    content: 'o';
+    cursor: pointer;
+}
+
+
+
+/* Services page css */
+.active-plot-btn {
+    background-color: var(--primary-c);
+    border: none;
+    color: white;
+}
+
+.plot-btn:hover {
+    background-color: var(--primary-c);
+    color: white;
+
+}
+
+
+.plot-detail-slider img {
+    cursor: pointer;
+}
+
+@media only screen and (min-width:1280px) {
+    .slogen {
+        width: 40% !important;
+    }
+}
+
+@media only screen and (min-width:1020px) {
+    .slogen {
+        width: 60%;
+    }
+}
+
+
+@media only screen and (max-width:1020px) {
+    .slogen {
+        width: 80%;
+    }
+}
