@@ -1,13 +1,15 @@
 @extends('main')
+
 @section('content')
     <main>
         <section class="text-gray-600 body-font">
-            @isset($message)
+            @if ($errors->any())
                 <div class="flex justify-center">
-                    <h1 class="text-lg text-center text-green-500 py-2 px-5 rounded-2xl bg-green-50 w-fit">{{ $message }}
+                    <h1 class="text-lg text-center text-green-700 py-2 px-5 rounded-2xl bg-green-50 w-fit">
+                        {{ $errors->first() }}
                     </h1>
                 </div>
-            @endisset
+            @endif
             <div class="container px-5 py-12 mx-auto flex flex-wrap items-center">
 
                 <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0 flex flex-col items-center">

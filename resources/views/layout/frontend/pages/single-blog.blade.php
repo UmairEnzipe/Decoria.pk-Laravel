@@ -1,5 +1,6 @@
 @extends('main')
 @section('content')
+{{-- $blog means $portfolio  --}}
     <!-- main -->
     <main>
         <section class="bg-gray-50 rounded-3xl p-5">

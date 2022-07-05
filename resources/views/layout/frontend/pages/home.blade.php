@@ -15,8 +15,8 @@
                     <p class="mb-8 leading-relaxed text-lg slogen text-gray-300 w-[100%] ">Lorem ipsum dolor sit amet,
                         consectetur adipiscing elit. Nulla ut magna eros. Quisque viverra nibh.</p>
                     <div class="flex justify-center">
-                        <a href="#"
-                            class="inline-flex text-white primary-bg border-0 py-3 px-8 text-lg focus:outline-none hover:bg-blue-200 rounded">Gallery</a>
+                        <a href="#gallery"
+                            class="inline-flex text-white primary-bg border-0 py-3 px-8 text-lg focus:outline-none hover:bg-sky-800 rounded">Gallery</a>
                     </div>
                 </div>
             </div>
@@ -164,7 +164,7 @@
         <!--@ Services -->
 
         <!-- Gallery -->
-        <section class="px-5 md:px-20 h-auto">
+        <section class="px-5 md:px-20 h-auto" id="gallery">
             <h1 class="text-3xl sm:text-5xl primary-font-f mb-2">Gallery</h1>
             <p class="w-full md:w-4/6 primary-font-s text-gray-400">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta molestias dolores qui rerum minima minus,

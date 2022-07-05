@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Redirect;
 
 class ContactController extends Controller
 {
@@ -61,7 +62,7 @@ class ContactController extends Controller
             'message' => $request->message,
             'ip_info' => $res,
         ]);
-        return view('layout.frontend.pages.contact-us')->with('message', "Your query is sumbited we will contact you soon.");
+        return Redirect::back()->withErrors(['msg' => 'Your query has been submited we will contact with you soon']);;
     }
 
     /**

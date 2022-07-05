@@ -10,7 +10,7 @@
             <a class="mr-5 hover:text-gray-900 cursor-pointer">Projects</a>
             <a class="mr-5 hover:text-gray-900 cursor-pointer">Awards</a>
         </nav>
-        <a href="./contact.html"
+        <a href="/contact-us"
             class="inline-flex items-center  border-0 py-2 px-5 focus:outline-none hover:bg-sky-800 rounded text-base mt-4 md:mt-0 primary-bg text-white ">Contact
             Us
         </a>

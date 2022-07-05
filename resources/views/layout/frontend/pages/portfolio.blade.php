@@ -4,22 +4,29 @@
     <main>
         <!-- header -->
         <section class="text-center space-y-8">
-            <h1 class="text-3xl sm:text-5xl primary-font-f font-bold">{{ $content->h1->value }}</h1>
-            <h2 class="text-2xl sm:text-4xl primary-font-f font-semibold">{{ $content->h2->value }}</h2>
-            <p class="text-lg primary-font-s text-gray-400 m-auto w-full sm:w-7/12">{{ $content->slogen->value }}</p>
+            <h1 class="text-3xl sm:text-5xl primary-font-f font-bold">Residential Buildings</h1>
+            <h2 class="text-2xl sm:text-4xl primary-font-f font-semibold">A Huge Collection of Houses for your Dream
+                Home</h2>
+            <p class="text-lg primary-font-s text-gray-400 m-auto w-full sm:w-7/12">Particleboard consists of fine
+                wood chips mixed together in an adhesive matrix and allowed to harden under pressure. On top of the wall
+                plate
+                is placed either a second floor or the roof.</p>
         </section>
         <!-- @header -->
 
         <!-- plot btn -->
         <section class=" w-full sm:w-8/12 m-auto flex justify-center flex-wrap mt-12 space-y-5 lg:space-y-0 space-x-5">
             <button
-                class="w-32 h-10 border-2  border-gray-400 ml-5 mt-5 lg:mt-0 sm:ml-0 rounded hover:border-white hover:text-white font-semibold active-plot-btn capitalize">{{ $content->plot_type_1->value }}</button>
+                class="w-32 h-10 border-2  border-gray-400 ml-5 mt-5 lg:mt-0 sm:ml-0 rounded hover:border-white hover:text-white font-semibold active-plot-btn capitalize">All</button>
             <button
-                class="w-32 h-10 border-2 text-gray-700 border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize">{{ $content->plot_type_2->value }}</button>
+                class="w-32 h-10 border-2 text-gray-700 border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize">5
+                Marla</button>
             <button
-                class="w-32 h-10 border-2 text-gray-700 border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize">{{ $content->plot_type_3->value }}</button>
+                class="w-32 h-10 border-2 text-gray-700 border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize">10
+                Marla</button>
             <button
-                class="w-32 h-10 border-2 text-gray-700 border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize">{{ $content->plot_type_4->value }}</button>
+                class="w-32 h-10 border-2 text-gray-700 border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize">1
+                kanal</button>
         </section>
         <!-- @plot btn -->
 
@@ -65,7 +72,7 @@
                                 </p>
                                 <div class="flex py-2">
                                     <a href="portfolio/{{ $portfolio['slug'] }}"
-                                        class="flex text-white primary-bg border-0 py-2 px-6 focus:outline-none hover:bg-sky-400 rounded">Full
+                                        class="flex text-white primary-bg border-0 py-2 px-6 focus:outline-none hover:bg-sky-800 rounded">Full
                                         Detail</a>
                                 </div>
                             </div>
@@ -73,12 +80,6 @@
                     </div>
                 </div>
             @endforeach
-
-
-
-
-
-
 
         </section>
         <!-- plots -->

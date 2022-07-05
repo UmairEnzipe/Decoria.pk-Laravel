@@ -5,7 +5,7 @@
       <div
         class="w-full flex flex-col items-center  md:items-start md:w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left space-y-5">
         <a href="/" class="">
-          <img src="./assets/logo.svg" alt="">
+          <img src="{{ asset('web_assets/frontend/assets/logo.svg') }}" alt="">
         </a>
         <p class="mt-2  text-gray-400 text-lg">Lorem ipsum dolor sit amet, amet elit adipiscing elit.
           Quisque nibh. Morbi placerat sit amet ultricies.</p>

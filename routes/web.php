@@ -34,7 +34,7 @@ require __DIR__ . '/admin.php';
 Route::get('sitemap.xml', [FrontendController::class, 'sitemap']);
 Route::post('contact', [ContactController::class, 'store'])->name('contact-us');
 Route::get('blog', [FrontendController::class, 'blog'])->name('page.blog');
-Route::get('blog/{slug}', [FrontendController::class, 'single_blog'])->name('page.single_blog');
+// Route::get('blog/{slug}', [FrontendController::class, 'single_blog'])->name('page.single_blog');
 Route::get('{lang}/blog/{slug}', [FrontendController::class, 'single_blog_other_language'])
     ->where(['lang' => '[a-z]{2}'])
     ->name('single_blog_other_language');
