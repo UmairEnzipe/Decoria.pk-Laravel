@@ -3,6 +3,9 @@
 use App\Models\Blog;
 use App\Models\Media;
 use App\Models\Setting;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 if (!function_exists('get_setting_by_key')) {
     function get_setting_by_key($key)
@@ -30,14 +33,29 @@ if (!function_exists('get_setting_by_section')) {
         }
     }
 }
+
+/* Custom Paginate creater */
+function paginateFromArray($items, $perPage = 5, $page = null, $options = ['path' => 'portfolio'])
+{
+
+    $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+    $items = $items instanceof Collection ? $items : Collection::make($items);
+    return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+}
+
+
+
 if (!function_exists('get_blogs_by_limit')) {
-    function get_blogs_by_limit($limit, $except_id = null)
+    function get_blogs_by_limit($limit, $except_id = null, $except_type = null)
     {
         if (!is_null($except_id)) {
-            $blogs = Blog::orderBy('created_at', 'desc')->where('id', '!=', $except_id)->take($limit)->get();
+            $blogs = Blog::orderBy('created_at', 'desc')->where('id', '!=', $except_id)->get();
+        } elseif (!is_null($except_type)) {
+            $blogs = Blog::orderBy('created_at', 'desc')->where('plot_size', '=', $except_type)->get();
         } else {
-            $blogs = Blog::orderBy('created_at', 'desc')->limit($limit)->get();
+            $blogs = Blog::orderBy('created_at', 'desc')->get();
         }
+
         $media = new Media();
         if ($blogs) {
             $blogs = $blogs->toArray();
@@ -54,11 +72,14 @@ if (!function_exists('get_blogs_by_limit')) {
                     $blogs[$parent_key]['images'] = null;
                 }
             }
+
+
             // uncomment or use (object) $item in loop to use as object
             // $blogs = collect($blogs)->map(function ($item) {
             //     return (object) $item;
             // });
-            return $blogs;
+
+            return paginateFromArray($blogs);
         } else {
             return [];
         }

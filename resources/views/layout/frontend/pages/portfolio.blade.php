@@ -1,6 +1,10 @@
 @extends('main')
 
 @section('content')
+    @php
+    $filter_by = Request::get('filter_by');
+    @endphp
+
     <main>
         <!-- header -->
         <section class="text-center space-y-8">
@@ -13,31 +17,37 @@
                 is placed either a second floor or the roof.</p>
         </section>
         <!-- @header -->
-
         <!-- plot btn -->
         <section class=" w-full sm:w-8/12 m-auto flex justify-center flex-wrap mt-12 space-y-5 lg:space-y-0 space-x-5">
-            <button
-                class="w-32 h-10 border-2  border-gray-400 ml-5 mt-5 lg:mt-0 sm:ml-0 rounded hover:border-white hover:text-white font-semibold active-plot-btn capitalize">All</button>
-            <button
-                class="w-32 h-10 border-2 text-gray-700 border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize">5
-                Marla</button>
-            <button
-                class="w-32 h-10 border-2 text-gray-700 border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize">10
-                Marla</button>
-            <button
-                class="w-32 h-10 border-2 text-gray-700 border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize">1
-                kanal</button>
+            <a href="/portfolio"
+                class="w-32 h-10 border-2 flex justify-center items-center border-gray-400 ml-5 mt-5 lg:mt-0 sm:ml-0 rounded  font-semibold capitalize plot-btn {{ $filter_by == null ? 'active-plot-btn' : '' }}">All</a>
+            <a href="portfolio?filter_by=5 marla"
+                class="w-32 h-10 border-2  flex justify-center items-center border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize {{ $filter_by == '5 marla' ? 'active-plot-btn' : '' }}">5
+                marla</a>
+            <a href="portfolio?filter_by=10 marla"
+                class="w-32 h-10 border-2  flex justify-center items-center border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize {{ $filter_by == '10 marla' ? 'active-plot-btn' : '' }}">10
+                Marla</a>
+            <a href="portfolio?filter_by=1 kanal"
+                class="w-32 h-10 border-2  flex justify-center items-center border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize {{ $filter_by == '1 kanal' ? 'active-plot-btn' : '' }}">1
+                kanal</a>
         </section>
         <!-- @plot btn -->
 
         <!-- plots -->
         <section>
-            @foreach (get_blogs_by_limit(10) as $portfolio)
+
+
+            @empty(get_blogs_by_limit(10, null, $filter_by))
+                <div class="container m-auto text-center py-10">
+                    <p class="text-gray-400 ">No Records Found With Current Filter.</p>
+                </div>
+            @endempty
+            @foreach (get_blogs_by_limit(10, null, $filter_by) as $portfolio)
                 <div class="text-gray-600 body-font overflow-hidden mt-10">
                     <div class="container px-5 py-6 mx-auto">
                         <div class="lg:w-9/12 mx-auto flex flex-wrap">
-                            <img alt="ecommerce" class="lg:w-3/12 w-full h-64 object-cover object-center rounded"
-                                src="{{ asset($portfolio['images']['original']) }}">
+                            <img class="lg:w-3/12 w-full h-64 object-cover object-center rounded"
+                                src="{{ asset(@$portfolio['images']['original']) }}" alt="House, Location Image">
                             <div class="lg:w-9/12 w-full lg:pl-10 lg:mt-0">
                                 <h1 class="text-gray-700 text-3xl title-font font-bold primary-font-f mt-4 md:mt-0 mb-1">
                                     {{ $portfolio['title'] }}
@@ -59,7 +69,6 @@
                                             @else
                                                 not avaliable
                                             @endif
-
                                         </span>
                                         {{-- #FFD700 --}}
                                     </span>
@@ -68,7 +77,10 @@
                                     </button>
                                 </div>
                                 <p class="leading-relaxed text-gray-400">
-                                    {!! $portfolio['detail'] !!}
+                                    {{ substr(strip_tags($portfolio['detail']), 0, 500) }}
+                                    <a href="portfolio/{{ $portfolio['slug'] }}">
+                                        {{ strlen(strip_tags($portfolio['detail'])) > 50 ? '...ReadMore' : '' }}
+                                    </a>
                                 </p>
                                 <div class="flex py-2">
                                     <a href="portfolio/{{ $portfolio['slug'] }}"
@@ -81,6 +93,9 @@
                 </div>
             @endforeach
 
+            <div class="w-9/12 m-auto">
+                {{ get_blogs_by_limit(10, null, $filter_by)->links() }}
+            </div>
         </section>
         <!-- plots -->
 

@@ -86,11 +86,11 @@
 
 
 
-/* Services page css */
+/* portfolio page css */
 .active-plot-btn {
+    color: white;
     background-color: var(--primary-c);
     border: none;
-    color: white;
 }
 
 .plot-btn:hover {
@@ -99,11 +99,13 @@
 
 }
 
-
 .plot-detail-slider img {
     cursor: pointer;
 }
 
+
+
+/* HERO SECTION SOLOGEN */
 @media only screen and (min-width:1280px) {
     .slogen {
         width: 40% !important;

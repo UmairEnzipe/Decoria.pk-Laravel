@@ -60,6 +60,8 @@ class BlogController extends Controller
             'meta_description' => $request->meta_description,
             'img_id' => $request->featured_img,
         ])->id;
+
+        
         if ($request->parent_id == 0) {
             Blog::where('id', $ok)->update(['parent_id' => $ok]);
         }

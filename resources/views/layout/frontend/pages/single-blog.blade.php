@@ -1,6 +1,18 @@
 @extends('main')
 @section('content')
-{{-- $blog means $portfolio  --}}
+    <style>
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 700
+        }
+    </style>
+
+    {{-- $blog means $portfolio --}}
     <!-- main -->
     <main>
         <section class="bg-gray-50 rounded-3xl p-5">
@@ -8,22 +20,21 @@
                 <div class="flex justify-center">
                     <div class="plot-detail-div w-11/12 sm:w-9/12 md:w-4/12">
                         @foreach ($blog['images'] as $image)
-                        
-                        <img src="{{ asset($image) }}" alt="">
+                            <img src="{{ asset($image) }}" alt="">
                         @endforeach
                     </div>
                 </div>
                 <div class="flex justify-center my-5">
                     <div class="plot-detail-slider w-11/12 md:w-6/12">
                         @foreach ($blog['images'] as $image)
-                        <img src="{{ asset($image) }}" alt="">
+                            <img src="{{ asset($image) }}" alt="">
                         @endforeach
                     </div>
                 </div>
             </div>
             <div class="text-center mt-10">
                 <h1 class="text-3xl sm:text-5xl text-gray-700 primary-font-f font-bold">{{ $blog['title'] }}</h1>
-                <h2 class="text-2xl sm:text-3xl mt-5 text-gray-600">{{ $blog['address'] ?? "Address not set" }}</h2>
+                <h2 class="text-2xl sm:text-3xl mt-5 text-gray-600">{{ $blog['address'] ?? 'Address not set' }}</h2>
                 <div class="flex justify-evenly flex-wrap space-x-5 w-full m-auto mt-10 sm:w-8/12">
                     <!-- review -->
                     <div class="flex mb-2">
@@ -61,7 +72,7 @@
                         <p class="text-lg text-gray-400">{{ date('d-m-Y') }}</p>
                     </div>
                 </div>
-                <div class="text-lg text-gray-400 w-full m-auto mt-5 sm:w-8/12">{!! $blog['detail'] !!}</div>
+                <div class="w-full m-auto text-left space-y-2 mt-5 sm:w-8/12">{!! $blog['detail'] !!}</div>
             </div>
         </section>
     </main>

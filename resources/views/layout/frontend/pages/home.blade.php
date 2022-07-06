@@ -182,12 +182,14 @@
                                 style="background-image:url('{{ asset('web_assets/frontend/assets/video.png') }}');background-size: cover; background-position: center;"
                                 src="" alt="">
                         </div>
-                        <img class="rounded md:rounded-3xl shadow " src="{{ asset('web_assets/frontend/assets/nature.jpg') }}" alt="">
+                        <img class="rounded md:rounded-3xl shadow "
+                            src="{{ asset('web_assets/frontend/assets/nature.jpg') }}" alt="">
                     </div>
 
                     <!-- Gallery Second Row -->
                     <div class="grid grid-cols-2 gap-5 my-10">
-                        <img class="rounded md:rounded-3xl shadow" src="{{ asset('web_assets/frontend/assets/nature2.jpg') }}" alt="">
+                        <img class="rounded md:rounded-3xl shadow"
+                            src="{{ asset('web_assets/frontend/assets/nature2.jpg') }}" alt="">
 
                         <div class="grid grid-cols-2 gap-5">
                             <img class="h-[100%] rounded md:rounded-3xl shadow"
@@ -207,15 +209,17 @@
                                 style="background-image:url('{{ asset('web_assets/frontend/assets/nature.jpg') }}');background-size: cover; background-position: center;"
                                 src="" alt="">
                             <img class="h-[100%] rounded md:rounded-3xl shadow"
-                                style="background-image:url('{{ asset("web_assets/frontend/assets/nature2.jpg") }}');background-size: cover; background-position: center;"
+                                style="background-image:url('{{ asset('web_assets/frontend/assets/nature2.jpg') }}');background-size: cover; background-position: center;"
                                 src="" alt="">
                         </div>
-                        <img class="rounded md:rounded-3xl shadow" src="{{ asset('web_assets/frontend/assets/video.png') }}" alt="">
+                        <img class="rounded md:rounded-3xl shadow"
+                            src="{{ asset('web_assets/frontend/assets/video.png') }}" alt="">
                     </div>
 
                     <!-- Gallery Second Row -->
                     <div class="grid grid-cols-2 gap-2 md:gap-5 my-5">
-                        <img class="rounded md:rounded-3xl shadow" src="{{ asset('web_assets/frontend/assets/nature.jpg') }}" alt="">
+                        <img class="rounded md:rounded-3xl shadow"
+                            src="{{ asset('web_assets/frontend/assets/nature.jpg') }}" alt="">
 
                         <div class="grid grid-cols-2 gap-5">
                             <img class="h-[100%] rounded md:rounded-3xl shadow"
@@ -270,7 +274,8 @@
             <div class="flex justify-between w-full  h-auto flex-col lg:flex-row  ">
                 <div class="w-full px-3 lg:px-0 lg:w-3/6 flex flex-col">
 
-                    <img class="w-[50%] h-[50%]  lg:w-[40%] lg:h-auto" src="{{ asset('web_assets/frontend/assets/client.PNG') }}" alt="client image">
+                    <img class="w-[50%] h-[50%]  lg:w-[40%] lg:h-auto"
+                        src="{{ asset('web_assets/frontend/assets/client.PNG') }}" alt="client image">
                     <h1 class="mt-5 text-3xl md:text-4xl primary-font-f">Abdur Rehman</h1>
                     <p class="py-5 primary-font-s text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Placeat
@@ -278,25 +283,27 @@
                         maiores illum autem, laboriosam non atque omnis iste repudiandae hic provident rerum eius, fugit
                         labore in?
                     </p>
-                    <img class="w-[70%] h-auto mt-10 self-center" src="{{ asset('web_assets/frontend/assets/clients.PNG') }}" alt="clients images">
+                    <img class="w-[70%] h-auto mt-10 self-center"
+                        src="{{ asset('web_assets/frontend/assets/clients.PNG') }}" alt="clients images">
                 </div>
                 <div class="w-full  lg:w-3/6 flex items-end">
-                    <img class="w-full h-[80%]" src="{{ asset('web_assets/frontend/assets/client_home.png') }}" alt="">
+                    <img class="w-full h-[80%]" src="{{ asset('web_assets/frontend/assets/client_home.png') }}"
+                        alt="">
                 </div>
             </div>
         </section>
         {{-- <!-- @Client Feedback --> --}}
 
         <!-- News letter -->
-        <section class="w-auto h-auto secondary-bg my-16 sm:my-24 md:mx-20 rounded-3xl ">
+        {{-- <section class="w-auto h-auto secondary-bg my-16 sm:my-24 md:mx-20 rounded-3xl ">
             <div class="text-gray-600 body-font">
                 <div class="container px-5 py-16 mx-auto ">
                     <div
                         class="w-full sm:w-11/12 m-auto py-10 flex  flex-col space-y-5 sm:space-y-0 sm:flex-row justify-between">
                         <div
                             class="flex items-center justify-center md:justify-start flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-3 w-full sm:w-6/12">
-                            <img class="" src="{{ asset("web_assets/frontend/assets/search.svg") }}" alt=""> <span
-                                class="text-2xl text-white">Looking for More?</span>
+                            <img class="" src="{{ asset('web_assets/frontend/assets/search.svg') }}"
+                                alt=""> <span class="text-2xl text-white">Looking for More?</span>
                         </div>
                         <div class="w-full sm:w-6/12 flex justify-center md:justify-end space-x-5">
                             <a href="#">
@@ -319,7 +326,8 @@
                         </div>
                     </div>
                     <div class="flex flex-col text-left w-full sm:w-8/12 mb-12 sm:px-5 ">
-                        <h1 class="sm:text-4xl primary-font-f text-bold text-white text-3xl font-medium title-font mb-4 ">
+                        <h1
+                            class="sm:text-4xl primary-font-f text-bold text-white text-3xl font-medium title-font mb-4 md:px-10 ">
                             Subscribe
                             to get the latest news about us or Browse more properties.</h1>
                     </div>
@@ -337,11 +345,11 @@
                                 class="w-full bg-gray-100  rounded-2xl border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                         <button
-                            class="text-white  border-0 py-3 px-12 focus:outline-none hover:bg-blue-200 rounded-2xl text-lg primary-bg">Submit</button>
+                            class="text-white  border-0 py-3 px-12 focus:outline-none hover:bg-sky-800 rounded-2xl text-lg primary-bg">Submit</button>
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         {{-- <!-- @News letter --> --}}
 
     </main>
