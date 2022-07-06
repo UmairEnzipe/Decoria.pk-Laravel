@@ -8,4 +8,5 @@ step 5: run "composer require doctrine/dbal" if not in composer.json
 step 6: run "php artisan migrate:fresh"
 step 7: run "php artisan db:seed"
 step 8: run "php artisan optimize"
+step 9: run "php artisan serve"
 Hurrah! Ready to enjoy builtin dashboard just hit the admin hash route
