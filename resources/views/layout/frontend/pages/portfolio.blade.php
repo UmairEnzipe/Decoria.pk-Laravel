@@ -18,20 +18,20 @@
         </section>
         <!-- @header -->
         <!-- plot btn -->
-        <section class=" w-full sm:w-8/12 m-auto flex justify-center flex-wrap mt-12 space-y-5 lg:space-y-0 space-x-5">
+        <section class=" w-full sm:w-8/12 m-auto flex justify-center flex-wrap mt-12 space-y-5 lg:space-y-0 space-x-5 filter_btn_div">
             <button
-                class="w-32 h-10 border-2 flex justify-center items-center border-gray-400 ml-5 mt-5 lg:mt-0 sm:ml-0 rounded  font-semibold capitalize plot-btn {{ $filter_by == null ? 'active-plot-btn' : '' }}"
+                class="w-32 h-10 border-2 flex justify-center items-center border-gray-400 ml-5 mt-5 lg:mt-0 sm:ml-0 rounded  font-semibold capitalize plot-btn active-plot-btn"
                 data-filterBy='all' id="filterBy">All</button>
             <button href="portfolio?filter_by=5 marla"
-                class="w-32 h-10 border-2  flex justify-center items-center border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize {{ $filter_by == '5 marla' ? 'active-plot-btn' : '' }}"
+                class="w-32 h-10 border-2  flex justify-center items-center border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize "
                 data-filterBy="marla_5" id="filterBy">5
                 marla</button>
             <button href="portfolio?filter_by=10 marla"
-                class="w-32 h-10 border-2  flex justify-center items-center border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize {{ $filter_by == '10 marla' ? 'active-plot-btn' : '' }}"
+                class="w-32 h-10 border-2  flex justify-center items-center border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize }"
                 data-filterBy="marla_10" id="filterBy">10
                 Marla</button>
             <button href="portfolio?filter_by=1 kanal"
-                class="w-32 h-10 border-2  flex justify-center items-center border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize {{ $filter_by == '1 kanal' ? 'active-plot-btn' : '' }}"
+                class="w-32 h-10 border-2  flex justify-center items-center border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize"
                 data-filterBy="kanal_1" id="filterBy">1
                 kanal</button>
         </section>
@@ -113,9 +113,6 @@
             <div class="w-full md:w-8/12 m-auto text-center text-gray-400 py-4" id="msgDiv">No Records Found</div>
             {{-- @if portfolio is empty --}}
 
-            <div class="w-9/12 m-auto">
-                {{ get_blogs_by_limit(10, null, $filter_by)->links() }}
-            </div>
         </section>
         <!-- plots -->
 

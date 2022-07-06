@@ -99,7 +99,24 @@ function hideAllChildrenButOne(toRevealId) {
 
 /* filter function for portfolio page */
 filterBtn.forEach(e => {
+
+
+
+
+
+
+
+
+
+
     e.addEventListener('click', () => {
+        document.querySelectorAll('.plot-btn').forEach(e => {
+            e.classList.remove('active-plot-btn')
+        })
+
+        console.log(e.classList.add('active-plot-btn'));
+
+
         var toRevealId = e.dataset.filterby;
         hideAllChildrenButOne(toRevealId);
     });

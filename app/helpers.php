@@ -79,7 +79,7 @@ if (!function_exists('get_blogs_by_limit')) {
             //     return (object) $item;
             // });
 
-            return paginateFromArray($blogs);
+            return $blogs;
         } else {
             return [];
         }
