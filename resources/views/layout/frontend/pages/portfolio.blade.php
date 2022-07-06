@@ -19,22 +19,26 @@
         <!-- @header -->
         <!-- plot btn -->
         <section class=" w-full sm:w-8/12 m-auto flex justify-center flex-wrap mt-12 space-y-5 lg:space-y-0 space-x-5">
-            <a href="/portfolio"
-                class="w-32 h-10 border-2 flex justify-center items-center border-gray-400 ml-5 mt-5 lg:mt-0 sm:ml-0 rounded  font-semibold capitalize plot-btn {{ $filter_by == null ? 'active-plot-btn' : '' }}">All</a>
-            <a href="portfolio?filter_by=5 marla"
-                class="w-32 h-10 border-2  flex justify-center items-center border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize {{ $filter_by == '5 marla' ? 'active-plot-btn' : '' }}">5
-                marla</a>
-            <a href="portfolio?filter_by=10 marla"
-                class="w-32 h-10 border-2  flex justify-center items-center border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize {{ $filter_by == '10 marla' ? 'active-plot-btn' : '' }}">10
-                Marla</a>
-            <a href="portfolio?filter_by=1 kanal"
-                class="w-32 h-10 border-2  flex justify-center items-center border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize {{ $filter_by == '1 kanal' ? 'active-plot-btn' : '' }}">1
-                kanal</a>
+            <button
+                class="w-32 h-10 border-2 flex justify-center items-center border-gray-400 ml-5 mt-5 lg:mt-0 sm:ml-0 rounded  font-semibold capitalize plot-btn {{ $filter_by == null ? 'active-plot-btn' : '' }}"
+                data-filterBy='all' id="filterBy">All</button>
+            <button href="portfolio?filter_by=5 marla"
+                class="w-32 h-10 border-2  flex justify-center items-center border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize {{ $filter_by == '5 marla' ? 'active-plot-btn' : '' }}"
+                data-filterBy="marla_5" id="filterBy">5
+                marla</button>
+            <button href="portfolio?filter_by=10 marla"
+                class="w-32 h-10 border-2  flex justify-center items-center border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize {{ $filter_by == '10 marla' ? 'active-plot-btn' : '' }}"
+                data-filterBy="marla_10" id="filterBy">10
+                Marla</button>
+            <button href="portfolio?filter_by=1 kanal"
+                class="w-32 h-10 border-2  flex justify-center items-center border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize {{ $filter_by == '1 kanal' ? 'active-plot-btn' : '' }}"
+                data-filterBy="kanal_1" id="filterBy">1
+                kanal</button>
         </section>
         <!-- @plot btn -->
 
         <!-- plots -->
-        <section>
+        <section id="portfolio_section">
 
 
             @empty(get_blogs_by_limit(10, null, $filter_by))
@@ -43,7 +47,19 @@
                 </div>
             @endempty
             @foreach (get_blogs_by_limit(10, null, $filter_by) as $portfolio)
-                <div class="text-gray-600 body-font overflow-hidden mt-10">
+                @php
+                    
+                    $plot = explode(' ', $portfolio['plot_size']);
+                    if ($plot[0] && $plot[1]) {
+                        $plot_type = $plot[1] . '_' . $plot[0];
+                    } else {
+                        $plot_type = $portfolio['plot_size'];
+                    }
+                    
+                    // echo $plot_type[1];
+                    
+                @endphp
+                <div class="text-gray-600 body-font overflow-hidden mt-10 {{ $plot_type }}">
                     <div class="container px-5 py-6 mx-auto">
                         <div class="lg:w-9/12 mx-auto flex flex-wrap">
                             <img class="lg:w-3/12 w-full h-64 object-cover object-center rounded"
@@ -92,6 +108,10 @@
                     </div>
                 </div>
             @endforeach
+
+            {{-- if portfolio is empty --}}
+            <div class="w-full md:w-8/12 m-auto text-center text-gray-400 py-4" id="msgDiv">No Records Found</div>
+            {{-- @if portfolio is empty --}}
 
             <div class="w-9/12 m-auto">
                 {{ get_blogs_by_limit(10, null, $filter_by)->links() }}

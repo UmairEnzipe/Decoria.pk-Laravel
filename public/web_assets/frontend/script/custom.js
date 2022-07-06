@@ -56,3 +56,51 @@ $('.plot-detail-slider').slick({
     centerMode: true,
     focusOnSelect: true
 });
+
+
+
+/* Portfolio filters */
+// var filterBtn = document.querySelector();
+var filterBtn = document.querySelectorAll('#filterBy');
+document.getElementById('msgDiv').style.display = 'none';
+
+/* hide or show portfolio data by filter key */
+function hideAllChildrenButOne(toRevealId) {
+    var parentId = document.querySelector('#portfolio_section');
+    var children = parentId.children;
+
+
+    if (toRevealId == 'all') {
+
+        for (var i = 0; i < children.length; i++) children[i].style.display = "block";
+
+    } else {
+
+        /* first hide all children  */
+        for (var i = 0; i < children.length; i++) children[i].style.display = "none";
+
+        /* than unhide select children */
+        var revealList = document.querySelectorAll("." + toRevealId);
+
+        /* if not data found */
+        if (revealList.length < 1) {
+            document.getElementById('msgDiv').style.display = 'block';
+        } else {
+            /* if data found show by filter */
+            revealList.forEach(e => {
+                e.style.display = 'block';
+            })
+            document.getElementById('msgDiv').style.display = 'none';
+
+        }
+    }
+}
+
+
+/* filter function for portfolio page */
+filterBtn.forEach(e => {
+    e.addEventListener('click', () => {
+        var toRevealId = e.dataset.filterby;
+        hideAllChildrenButOne(toRevealId);
+    });
+})
