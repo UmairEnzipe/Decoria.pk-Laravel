@@ -45,6 +45,7 @@ function paginateFromArray($items, $perPage = 5, $page = null, $options = ['path
 
 
 
+
 if (!function_exists('get_blogs_by_limit')) {
     function get_blogs_by_limit($limit, $except_id = null, $except_type = null)
     {

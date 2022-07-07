@@ -21,7 +21,9 @@ class CreateBlogsTable extends Migration
             $table->string('meta_title', 255)->nullable();
             $table->string('meta_description', 255)->nullable();
             $table->string('img_url', 255)->nullable();
+            $table->longText('images_list')->nullable();
             $table->tinyInteger('status')->default(0);
+
             $table->timestamps();
         });
     }

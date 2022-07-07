@@ -46,6 +46,21 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->property_images);
+
+        $imageList = [];
+
+        foreach ($request->property_images as $image) {
+
+            $imageName = time() . md5(uniqid()) . '.' . $image->extension();
+
+            $image->move(public_path('web_assets/admin/images/blogImages/'), $imageName);
+
+            $imageList[] = $imageName;
+        }
+
+        $imageList = json_encode($imageList);
+
         $ok = Blog::create([
             'title' => $request->title,
             'parent_id' => $request->parent_id,
@@ -58,10 +73,10 @@ class BlogController extends Controller
             'slug' => $request->slug,
             'meta_title' => $request->meta_title,
             'meta_description' => $request->meta_description,
-            'img_id' => $request->featured_img,
+            'images_list' => $imageList
         ])->id;
 
-        
+
         if ($request->parent_id == 0) {
             Blog::where('id', $ok)->update(['parent_id' => $ok]);
         }
@@ -112,6 +127,25 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id = null)
     {
+
+
+
+        $imageList = [];
+
+        if (!is_null($request->property_images)) {
+            foreach ($request->property_images as $image) {
+
+                $imageName = time() . md5(uniqid()) . '.' . $image->extension();
+
+                $image->move(public_path('web_assets/admin/images/blogImages/'), $imageName);
+
+                $imageList[] = $imageName;
+            }
+        }
+
+        /* images list */
+        $imagesList = json_encode(array_merge($imageList, json_decode($request->imagesUrlList)));
+
         try {
             $blog = Blog::find(intval($request->id));
             $blog->parent_id = $request->parent_id;
@@ -126,6 +160,7 @@ class BlogController extends Controller
             $blog->meta_title = $request->meta_title;
             $blog->meta_description = $request->meta_description;
             $blog->img_id = $request->featured_img;
+            $blog->images_list = $imagesList;
             $blog->save();
             return redirect()->route('blog.index');
         } catch (\Throwable $th) {
@@ -143,6 +178,7 @@ class BlogController extends Controller
     {
         $this->authorize('super_admin');
         $blog = Blog::find($id);
+        // dd($blog);
         $blog->delete();
         return redirect()->back();
     }

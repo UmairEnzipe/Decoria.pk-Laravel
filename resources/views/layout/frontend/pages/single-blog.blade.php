@@ -11,6 +11,9 @@
             font-weight: 700
         }
     </style>
+    @php
+    $imagesList = json_decode($blog['images_list']);
+    @endphp
 
     {{-- $blog means $portfolio --}}
     <!-- main -->
@@ -19,15 +22,17 @@
             <div class="slider">
                 <div class="flex justify-center">
                     <div class="plot-detail-div w-11/12 sm:w-9/12 md:w-4/12">
-                        @foreach ($blog['images'] as $image)
-                            <img src="{{ asset($image) }}" alt="">
+                        @foreach ($imagesList as $image)
+                            <img src="{{ asset('web_assets/admin/images/blogImages/' . $image) }}" alt="">
                         @endforeach
                     </div>
                 </div>
                 <div class="flex justify-center my-5">
                     <div class="plot-detail-slider w-11/12 md:w-6/12">
-                        @foreach ($blog['images'] as $image)
-                            <img src="{{ asset($image) }}" alt="">
+                        @foreach ($imagesList as $image)
+                        <div class="">
+                            <img src="{{ asset('web_assets/admin/images/blogImages/' . $image) }}" alt="">
+                        </div>
                         @endforeach
                     </div>
                 </div>

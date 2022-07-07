@@ -1,10 +1,6 @@
 @extends('main')
 
 @section('content')
-    @php
-    $filter_by = Request::get('filter_by');
-    @endphp
-
     <main>
         <!-- header -->
         <section class="text-center space-y-8">
@@ -18,19 +14,20 @@
         </section>
         <!-- @header -->
         <!-- plot btn -->
-        <section class=" w-full sm:w-8/12 m-auto flex justify-center flex-wrap mt-12 space-y-5 lg:space-y-0 space-x-5 filter_btn_div">
+        <section
+            class=" w-full sm:w-8/12 m-auto flex justify-center flex-wrap mt-12 space-y-5 lg:space-y-0 space-x-5 filter_btn_div">
             <button
                 class="w-32 h-10 border-2 flex justify-center items-center border-gray-400 ml-5 mt-5 lg:mt-0 sm:ml-0 rounded  font-semibold capitalize plot-btn active-plot-btn"
                 data-filterBy='all' id="filterBy">All</button>
-            <button href="portfolio?filter_by=5 marla"
+            <button
                 class="w-32 h-10 border-2  flex justify-center items-center border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize "
                 data-filterBy="marla_5" id="filterBy">5
                 marla</button>
-            <button href="portfolio?filter_by=10 marla"
+            <button
                 class="w-32 h-10 border-2  flex justify-center items-center border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize }"
                 data-filterBy="marla_10" id="filterBy">10
                 Marla</button>
-            <button href="portfolio?filter_by=1 kanal"
+            <button
                 class="w-32 h-10 border-2  flex justify-center items-center border-gray-400 rounded hover:border-white hover:text-white font-semibold plot-btn capitalize"
                 data-filterBy="kanal_1" id="filterBy">1
                 kanal</button>
@@ -41,29 +38,33 @@
         <section id="portfolio_section">
 
 
-            @empty(get_blogs_by_limit(10, null, $filter_by))
+            @empty(get_blogs_by_limit(10, null, null))
                 <div class="container m-auto text-center py-10">
                     <p class="text-gray-400 ">No Records Found With Current Filter.</p>
                 </div>
             @endempty
-            @foreach (get_blogs_by_limit(10, null, $filter_by) as $portfolio)
+            @foreach (get_blogs_by_limit(10, null, null) as $portfolio)
                 @php
                     
                     $plot = explode(' ', $portfolio['plot_size']);
-                    if ($plot[0] && $plot[1]) {
+                    
+
+                    if (isset($plot[1])) {
                         $plot_type = $plot[1] . '_' . $plot[0];
                     } else {
                         $plot_type = $portfolio['plot_size'];
                     }
-                    
-                    // echo $plot_type[1];
+
+                    /* converting json to array */
+                    @$imagesList = json_decode($portfolio['images_list']);
                     
                 @endphp
                 <div class="text-gray-600 body-font overflow-hidden mt-10 {{ $plot_type }}">
                     <div class="container px-5 py-6 mx-auto">
                         <div class="lg:w-9/12 mx-auto flex flex-wrap">
                             <img class="lg:w-3/12 w-full h-64 object-cover object-center rounded"
-                                src="{{ asset(@$portfolio['images']['original']) }}" alt="House, Location Image">
+                                src="{{ asset('web_assets/admin/images/blogImages/' . @$imagesList[0]) }}"
+                                alt="House, Location Image">
                             <div class="lg:w-9/12 w-full lg:pl-10 lg:mt-0">
                                 <h1 class="text-gray-700 text-3xl title-font font-bold primary-font-f mt-4 md:mt-0 mb-1">
                                     {{ $portfolio['title'] }}
@@ -99,7 +100,7 @@
                                     </a>
                                 </p>
                                 <div class="flex py-2">
-                                    <a href="portfolio/{{ $portfolio['slug'] }}"
+                                    <a href="/portfolio/{{ $portfolio['slug'] }}"
                                         class="flex text-white primary-bg border-0 py-2 px-6 focus:outline-none hover:bg-sky-800 rounded">Full
                                         Detail</a>
                                 </div>

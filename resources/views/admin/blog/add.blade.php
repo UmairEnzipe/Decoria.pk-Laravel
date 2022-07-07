@@ -64,10 +64,14 @@
                             <input type="number" min="0" max="5" name="rating"
                                 class="form-control js-blog-slug" placeholder="Rating 0 - 5" value="" required>
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-6 mb-3 ">
                             <label for="" class="form-label">Plot Size</label>
-                            <input type="text" name="plot_size"
-                                class="form-control" placeholder="1 marla, 5marla, 1 kanal" value="" required>
+                            <select name="plot_size" class="form-control pointer" required >
+                                <option value="1 marla" selected>1 Marla</option>
+                                <option value="10 marla" >10 Marla</option>
+                                <option value="1 kanal" >1 kanal</option>
+                            </select>
+
                         </div>
 
                         <div class="col-md-6 mb-3">
@@ -89,30 +93,28 @@
                                 @endif
                             </select>
                         </div>
+
                         <div class="col-md-6 mb-3">
-                            <label for="blog" class="form-label">Status</label>
+                            <label for="blog" class="form-labeliiii">Status</label>
                             <select class="form-select" id="" name="pinch">
                                 <option selected disabled>Add To Pinch</option>
                                 <option value="1" selected>True</option>
                                 <option value="0">False</option>
                             </select>
                         </div>
+
                         <div class=" col-md-12 mb-3">
                             <label for="contact" class="form-label">Detail</label>
                             <input class="form-control tool_textarea" name="blog_detail" id="blog_textarea" />
                         </div>
-                        <div class="col-md-12">
-                            <label for="contact" class="form-label">Featured Image URL</label>
-                            <x-media :images="$images" name="featured_img" imageId="null" />
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <div>
-                                @if (isset($images))
-                                    <x-gallary :images="$images"></x-gallary>
-                                @endif
-                            </div>
+                        <div id="inputImgPreview" class="d-flex flex-wrap justify-evenly border-2"></div>
+                        <div class="w-100 mb-3">
+                            <label for="multipleImages" class="form-label">Choose Multiple Images</label>
+                            <input class="form-control" name="property_images[]" type="file"
+                                accept="image/png, image/jpg, image/jpeg" multiple id="multipleImages" required>
                         </div>
                     </div>
+
                     <div style="text-align: right">
                         <button type="submit" class="btn btn-primary waves-effect waves-light">
                             Submit
@@ -145,4 +147,5 @@
             });
         });
     </script>
+    <script src="{{ asset('web_assets/admin/js/admin-custom.js') }}"></script>
 @endsection

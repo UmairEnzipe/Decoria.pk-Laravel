@@ -1,61 +1,68 @@
-$('.gallery_slider').slick({
-    infinite: true,
-    dots: true,
-
-});
+/* slick slider  */
 
 
-$('.services_slider').slick({
-    dots: true,
-    infinite: false,
-    speed: 300,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    responsive: [{
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                infinite: true,
-                dots: true
+try {
+    $('.gallery_slider').slick({
+        infinite: true,
+        dots: true,
+
+    });
+
+
+    $('.services_slider').slick({
+        dots: true,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
             }
-        },
-        {
-            breakpoint: 600,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2
-            }
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }
-        // You can unslick at a given breakpoint now by adding:
-        // settings: "unslick"
-        // instead of a settings object
-    ]
-});
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+        ]
+    });
 
 
 
-$('.plot-detail-div').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    fade: true,
-    asNavFor: '.plot-detail-slider'
-});
-$('.plot-detail-slider').slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    asNavFor: '.plot-detail-div',
-    centerMode: true,
-    focusOnSelect: true
-});
+    $('.plot-detail-div').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.plot-detail-slider'
+    });
+    $('.plot-detail-slider').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.plot-detail-div',
+        centerMode: true,
+        focusOnSelect: true
+    });
+} catch (e) {
+    console.log("slick file not added");
+}
 
 
 
@@ -63,6 +70,10 @@ $('.plot-detail-slider').slick({
 // var filterBtn = document.querySelector();
 var filterBtn = document.querySelectorAll('#filterBy');
 document.getElementById('msgDiv').style.display = 'none';
+
+
+
+
 
 /* hide or show portfolio data by filter key */
 function hideAllChildrenButOne(toRevealId) {
@@ -95,29 +106,21 @@ function hideAllChildrenButOne(toRevealId) {
         }
     }
 }
-
-
 /* filter function for portfolio page */
-filterBtn.forEach(e => {
+
+try {
+    filterBtn.forEach(e => {
+        e.addEventListener('click', () => {
+            document.querySelectorAll('.plot-btn').forEach(e => {
+                e.classList.remove('active-plot-btn')
+            })
+            var toRevealId = e.dataset.filterby;
+            hideAllChildrenButOne(toRevealId);
+        });
+    })
+}catch(e){
+    console.log(e);
+}
 
 
 
-
-
-
-
-
-
-
-    e.addEventListener('click', () => {
-        document.querySelectorAll('.plot-btn').forEach(e => {
-            e.classList.remove('active-plot-btn')
-        })
-
-        console.log(e.classList.add('active-plot-btn'));
-
-
-        var toRevealId = e.dataset.filterby;
-        hideAllChildrenButOne(toRevealId);
-    });
-})

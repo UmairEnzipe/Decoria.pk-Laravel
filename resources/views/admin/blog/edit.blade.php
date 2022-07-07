@@ -71,8 +71,21 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="" class="form-label">Plot Size</label>
-                            <input type="text" name="plot_size" class="form-control" placeholder="5 marla, 1 kanal"
-                                value="{{ $blog->plot_size }}" required>
+
+                            <select name='plot_size' class="form-control">
+                                @foreach (['5 marla', '10 marla', '1 kanal'] as $option)
+                                    @if ($option == $blog->plot_size)
+                                        <option value="{{ $option }}" selected>{{ $option }}
+                                        </option>
+                                    @else
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+
+
+                            {{-- <input type="text" name="plot_size" class="form-control" placeholder="5 marla, 1 kanal" --}}
+                            {{-- value="{{ $blog->plot_size }}" required> --}}
                         </div>
 
                         <div class="col-md-6 mb-3">
@@ -114,17 +127,31 @@
                             <input class="form-control tool_textarea" name="blog_detail" id="blog_textarea"
                                 value="{{ $blog->detail }}" />
                         </div>
-                        <div class="col-md-12">
-                            <label for="contact" class="form-label">Featured Image URL</label>
-                            <x-media :images="$images" name="featured_img" :imageId="$blog->img_id" />
+
+                        <div id="inputImgPreview" class="d-flex flex-wrap justify-evenly border-2">
+                            <input type="hidden" name="imagesUrlList" id="imagesUrlList"
+                                value="{{ $blog->images_list }}">
+                            @foreach (json_decode($blog->images_list) as $image)
+                                <div class="d-flex flex-col border m-2 p-2 rounded card">
+                                    <button type="button" class="btn" id="delBlogImg"
+                                        data-img-name="{{ $image }}">
+                                        <i class="fas fa-times" style="cursor: pointer;"></i>
+                                    </button>
+                                    <img class="m-2" style="max-width:12rem;height:auto"
+                                        src="{{ asset('web_assets/admin/images/blogImages/' . $image) }}" />
+                                </div>
+                            @endforeach
                         </div>
 
-                        <div class="col-md-6 mb-3">
-                            <div>
-                                <x-gallary :images="$images" />
-                            </div>
+
+                        <div class="w-100 mb-3">
+                            <label for="multipleImages" class="form-label">Choose Multiple Images</label>
+                            <input class="form-control" name="property_images[]" type="file"
+                                accept="image/png, image/jpg, image/jpeg" multiple id="multipleImages">
                         </div>
                     </div>
+
+
                     <div style="text-align: right">
                         <button type="submit" class="btn btn-primary waves-effect waves-light">
                             Submit
@@ -145,4 +172,5 @@
     {{-- TINYMCE SCRIPT END --}}
 
     <script src="{{ asset('web_assets/admin/js/tinymce-script.js') }}"></script>
+    <script src="{{ asset('web_assets/admin/js/admin-custom.js') }}"></script>
 @endsection

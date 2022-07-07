@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Blog extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['parent_id', 'lang_key', 'title', 'detail', 'slug', 'address', 'rating',  'plot_size', 'meta_title', 'meta_description', 'img_id', 'status'];
+    protected $fillable = ['parent_id', 'lang_key', 'title', 'detail', 'slug', 'address', 'rating',  'plot_size', 'meta_title', 'meta_description', 'img_id', 'status', 'images_list'];
 
     public function media()
     {
