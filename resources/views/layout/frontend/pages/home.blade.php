@@ -27,7 +27,7 @@
                 <div class="w-[80w] md:w-[70vw] bg-white rounded-3xl p-8 shadow-2xl md:flex justify-evenly ">
                     <div class="py-10 space-y-2">
                         <h1 class="font-black text-2xl primary-font-f">Buildings</h1>
-                        <p>Lorem ipsum dolor sit. <span><i class="fa-solid fa-caret-down primary-bg p-2 text-white ml-10"
+                        <p>Lorem ipsum dolor sit. <span><i class="fa-solid fa-caret-down primary-bg p-1 sm:p-2 text-white ml-10"
                                     style="clip-path: circle();"></i></span></p>
 
                     </div>
@@ -35,13 +35,13 @@
 
                     <div class="py-10 space-y-2">
                         <h1 class="font-black text-2xl primary-font-f">Interior</h1>
-                        <p>Lorem ipsum dolor sit. <span><i class="fa-solid fa-caret-down primary-bg p-2 text-white ml-10"
+                        <p>Lorem ipsum dolor sit. <span><i class="fa-solid fa-caret-down primary-bg p-1 sm:p-2 text-white ml-10"
                                     style="clip-path: circle();"></i></span></p>
                     </div>
                     <div class="lg:h-[100%] h-0 invisible lg:visible w-[1.5px] rounded bg-gray-300"></div>
                     <div class="py-10 space-y-2">
                         <h1 class="text-2xl primary-font-f font-bold">Furniture</h1>
-                        <p>Lorem ipsum dolor sit. <span><i class="fa-solid fa-caret-down primary-bg p-2 text-white ml-10"
+                        <p>Lorem ipsum dolor sit. <span><i class="fa-solid fa-caret-down primary-bg p-1 sm:p-2 text-white ml-10"
                                     style="clip-path: circle();"></i></span></p>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
         {{-- <!-- Dream House Text --> --}}
         <section
             class="h-auto w-[100%] mt-32 mb-5 sm:my-52 sm:mt-72 sm:mb-0 flex flex-col justify-center items-center space-y-5 text-center ">
-            <h1 class="text-3xl sm:text-5xl font-bold primary-font-f ">
+            <h1 class="text-3xl text-left sm:text-center sm:text-5xl font-bold primary-font-f ">
                 Why you should buy your dream house from us?
             </h1>
             <p class="w-[90%] sm:w-[80vw] sm:text-center text-left leading-relaxed  text-gray-400 primary-font-s">
