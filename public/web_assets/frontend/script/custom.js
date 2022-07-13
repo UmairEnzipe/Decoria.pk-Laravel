@@ -69,7 +69,10 @@ try {
 /* Portfolio filters */
 // var filterBtn = document.querySelector();
 var filterBtn = document.querySelectorAll('#filterBy');
-document.getElementById('msgDiv').style.display = 'none';
+
+var msgDiv = document.getElementById('msgDiv');
+
+msgDiv && (msgDiv.style.display = 'none');
 
 
 
@@ -118,9 +121,63 @@ try {
             hideAllChildrenButOne(toRevealId);
         });
     })
-}catch(e){
+} catch (e) {
     console.log(e);
 }
 
 
 
+var clientBTN = document.querySelectorAll('#clientBTN');
+
+
+
+
+var clientList = {
+    client1: {
+        'name': "Abdur Rehman",
+        'feedback': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat odio cupiditate ipsam? Repellat accusamus maiores illum autem, laboriosam non atque omnis iste repudiandae hic provident rerum eius, fugit labore in?',
+        'img': 'client1.png'
+    },
+    client2: {
+        'name': "Rehman Mustafa",
+        'feedback': 'Repellat accusamus maiores illum autem, laboriosam non atque omnis iste repudiandae hic provident rerum eius, fugit labore in Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat odio cupiditate ipsam?',
+        'img': 'client2.jpg'
+    },
+    client3: {
+        'name': "Noman Mustafa",
+        'feedback': 'consectetur adipisicing elit. Placeat odio cupiditate ipsam? Repellat accusamus maiores illum autem, laboriosam non atque omnis iste repudiandae hic provident rerum eius, fugit labore in?  ipsum dolor sit amet ',
+        'img': 'client3.jpg'
+    },
+    client4: {
+        'name': "Hannan Mustafa",
+        'feedback': 'maiores illum autem, laboriosam non atque omnis iste repudiandae hic provident rerum eius, fugit labore in? Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat odio cupiditate ipsam? Repellat accusamus ',
+        'img': 'client4.jpg'
+    },
+    client5: {
+        'name': "Usman Mustafa",
+        'feedback': 'adipisicing elit. Placeat odio cupiditate ipsam? Repellat accusamus maiores illum autem, laboriosam non atque omnis iste repudiandae hic provident rerum eius, fugit labore in? Lorem ipsum dolor sit amet consectetur',
+        'img': 'client5.jpg'
+    }
+};
+
+
+
+
+clientBTN.forEach(e => {
+    e.addEventListener('click', function () {
+
+        var baseURL = window.location.origin;
+
+        var imgDir = 'web_assets/frontend/assets/clients/';
+
+        document.querySelector('#clientName').innerText = clientList[e.dataset.clientId]['name'] ?? "Empty";
+        document.querySelector('#clientFeedback').innerText = clientList[e.dataset.clientId]['feedback'] ?? "Empty";
+        document.querySelector('#clientImg').src = baseURL + "/" + imgDir + (clientList[e.dataset.clientId]['img'] ?? 'client1.png');
+        // console.log(window.location);
+
+        // console.log(baseURL + "/" + imgDir + (clientList[e.dataset.clientId]['img'] ?? 'client1.png'));
+
+
+
+    });
+});

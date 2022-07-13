@@ -16,7 +16,8 @@
         "intervention/image": "^2.7",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
-        "owen-it/laravel-auditing": "^13.0"
+        "owen-it/laravel-auditing": "^13.0",
+        "symfony/sendinblue-mailer": "^6.1"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",

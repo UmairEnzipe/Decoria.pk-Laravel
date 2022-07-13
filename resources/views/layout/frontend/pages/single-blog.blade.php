@@ -23,7 +23,7 @@
                 <div class="flex justify-center">
                     <div class="plot-detail-div w-11/12 sm:w-9/12 md:w-4/12">
                         @foreach ($imagesList as $image)
-                            <img src="{{ asset('web_assets/admin/images/blogImages/' . $image) }}" alt="">
+                            <img class="w-96 h-96 rounded-3xl" style="object-fit: contain" src="{{ asset('web_assets/admin/images/blogImages/' . $image) }}" alt="">
                         @endforeach
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                     <div class="plot-detail-slider w-11/12 md:w-6/12">
                         @foreach ($imagesList as $image)
                         <div class="">
-                            <img src="{{ asset('web_assets/admin/images/blogImages/' . $image) }}" alt="">
+                            <img class="w-20 h-20 sm:w-40 sm:h-40 rounded" style="object-fit: cover;" src="{{ asset('web_assets/admin/images/blogImages/' . $image) }}" alt="">
                         </div>
                         @endforeach
                     </div>

@@ -6,6 +6,9 @@ use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
+use App\Mail\ContactEmail;
+use Illuminate\Support\Facades\Mail;
+use PhpParser\Node\Stmt\TryCatch;
 
 class ContactController extends Controller
 {
@@ -55,14 +58,26 @@ class ContactController extends Controller
     {
         $response = Http::get('http://ip-api.com/json/' . $request->ip);
         $res = $response->collect()->only(['query', 'country', 'city', 'org'])->toJson();
-        $name = $request->firstName . ' ' . $request->lastName; 
-        Contact::create([
-            'name' => $name,
-            'email' => $request->email,
-            'message' => $request->message,
-            'ip_info' => $res,
-        ]);
-        return Redirect::back()->withErrors(['msg' => 'Your query has been submited we will contact with you soon']);;
+        $name = $request->firstName . ' ' . $request->lastName;
+
+        // try {
+            // Mail::to('umair.enzipe@gmail.com')->send(new ContactEmail);
+
+            Contact::create([
+                'name' => $name,
+                'email' => $request->email,
+                'message' => $request->message,
+                'ip_info' => $res,
+            ]);
+            return Redirect::back()->withErrors(['msg' => 'Your query has been submited we will contact with you soon', 'status' => 'success']);;
+
+            
+        // } catch (\Throwable $th) {
+            // return Redirect::back()->withErrors(['msg' => 'error while contacting please try again', 'status' => 'danger']);
+        // }
+        
+
+
     }
 
     /**

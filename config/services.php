@@ -20,6 +20,11 @@ return [
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
 
+
+    'sendinblue' => [
+        'key' => env('SENDINBLUE_KEY'),
+    ], 
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],

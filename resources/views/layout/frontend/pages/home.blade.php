@@ -4,7 +4,7 @@
     <!-- Main -->
     <main class="mx-5 sm:mx-12">
 
-        <section class="text-gray-600 body-font hero-section mx-6 md:h-auto  shadow-2xl relative">
+        <section class="text-gray-600 body-font hero-section mx-1 sm:mx-6 md:h-auto  shadow-2xl relative">
             <div class="container mx-auto flex px-5   pt-20 md:py-32 lg:flex-row flex-col items-center">
                 <div
                     class="lg:flex-grow w-full lg:w-1/2 lg:pr-24 flex flex-col lg:items-start lg:text-left mb-16 lg:mb-0 items-center text-center pl-0 lg:px-12">
@@ -25,23 +25,26 @@
             <!-- Hero White Block -->
             <div class="w-[100%]  flex justify-center h-auto pb-10  md:absolute  md:-bottom-40 ">
                 <div class="w-[80w] md:w-[70vw] bg-white rounded-3xl p-8 shadow-2xl md:flex justify-evenly ">
-                    <div class="py-10 space-y-2">
+                    <div class="py-8 sm:py-10 space-y-2">
                         <h1 class="font-black text-2xl primary-font-f">Buildings</h1>
-                        <p>Lorem ipsum dolor sit. <span><i class="fa-solid fa-caret-down primary-bg p-1 sm:p-2 text-white ml-10"
+                        <p>Lorem ipsum dolor sit. <span><i
+                                    class="fa-solid fa-caret-down primary-bg p-1 sm:p-2 text-white ml-10"
                                     style="clip-path: circle();"></i></span></p>
 
                     </div>
                     <div class="lg:h-[100%] w-[1.5px] rounded bg-gray-300 h-0 invisible lg:visible"></div>
 
-                    <div class="py-10 space-y-2">
+                    <div class="py-8 sm:py-10 space-y-2">
                         <h1 class="font-black text-2xl primary-font-f">Interior</h1>
-                        <p>Lorem ipsum dolor sit. <span><i class="fa-solid fa-caret-down primary-bg p-1 sm:p-2 text-white ml-10"
+                        <p>Lorem ipsum dolor sit. <span><i
+                                    class="fa-solid fa-caret-down primary-bg p-1 sm:p-2 text-white ml-10"
                                     style="clip-path: circle();"></i></span></p>
                     </div>
                     <div class="lg:h-[100%] h-0 invisible lg:visible w-[1.5px] rounded bg-gray-300"></div>
-                    <div class="py-10 space-y-2">
+                    <div class="py-8 sm:py-10 space-y-2">
                         <h1 class="text-2xl primary-font-f font-bold">Furniture</h1>
-                        <p>Lorem ipsum dolor sit. <span><i class="fa-solid fa-caret-down primary-bg p-1 sm:p-2 text-white ml-10"
+                        <p>Lorem ipsum dolor sit. <span><i
+                                    class="fa-solid fa-caret-down primary-bg p-1 sm:p-2 text-white ml-10"
                                     style="clip-path: circle();"></i></span></p>
                     </div>
                 </div>
@@ -55,7 +58,7 @@
         {{-- <!-- Dream House Text --> --}}
         <section
             class="h-auto w-[100%] mt-32 mb-5 sm:my-52 sm:mt-72 sm:mb-0 flex flex-col justify-center items-center space-y-5 text-center ">
-            <h1 class="text-3xl text-left sm:text-center sm:text-5xl font-bold primary-font-f ">
+            <h1 class="text-3xl px-4 sm:px-0 text-left sm:text-center sm:text-5xl font-bold primary-font-f ">
                 Why you should buy your dream house from us?
             </h1>
             <p class="w-[90%] sm:w-[80vw] sm:text-center text-left leading-relaxed  text-gray-400 primary-font-s">
@@ -134,29 +137,28 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta molestias dolores qui rerum minima minus,
                 saepe.
             </p>
-
             <div class="flex services_slider flex-col text-center  my-20">
                 <div class="space-y-2  text-2xl ">
-                    <img src="{{ asset('web_assets/frontend/assets/services.png') }}" alt="">
+                    <img src="{{ asset('web_assets/frontend/assets/services.png') }}">
                     <p>Building Design</p>
                 </div>
                 <div class="space-y-2  text-2xl">
-                    <img src="{{ asset('web_assets/frontend/assets/services.png') }}" alt="">
+                    <img src="{{ asset('web_assets/frontend/assets/services.png') }}">
                     <p>Interior Design</p>
                 </div>
 
                 <div class="space-y-2  text-2xl">
-                    <img src="{{ asset('web_assets/frontend/assets/services.png') }}" alt="">
+                    <img src="{{ asset('web_assets/frontend/assets/services.png') }}">
                     <p>Furnitures</p>
                 </div>
 
                 <div class="space-y-2  text-2xl">
-                    <img src="{{ asset('web_assets/frontend/assets/services.png') }}" alt="">
+                    <img src="{{ asset('web_assets/frontend/assets/services.png') }}">
                     <p>Sofa Designs</p>
                 </div>
 
                 <div class="space-y-2  text-2xl">
-                    <img src="{{ asset('web_assets/frontend/assets/services.png') }}" alt="">
+                    <img src="{{ asset('web_assets/frontend/assets/services.png') }}">
                     <p>Service1</p>
                 </div>
             </div>
@@ -268,25 +270,39 @@
         {{-- <!-- @Video Section --> --}}
 
         <!-- Client Feedback -->
-        <section class="h-auto lg:h-screen py-10 mx-2 lg:mx-20 pl-5 rounded-3xl lg:pl-16 overflow-hidden"
+        <section class=" pt-20 bg-red-500 mx-5 lg:mx-20 pl-5 rounded-3xl lg:pl-16 overflow-hidden"
             style="background-color: #F7F9FE;">
             <h1 class="text-3xl md:text-5xl primary-font-f mb-2 ">Our Client's Feedback</h1>
-            <div class="flex justify-between w-full  h-auto flex-col lg:flex-row  ">
-                <div class="w-full px-3 lg:px-0 lg:w-3/6 flex flex-col">
-
-                    <img class="w-[50%] h-[50%]  lg:w-[40%] lg:h-auto"
-                        src="{{ asset('web_assets/frontend/assets/client.PNG') }}" alt="client image">
-                    <h1 class="mt-5 text-3xl md:text-4xl primary-font-f">Abdur Rehman</h1>
-                    <p class="py-5 primary-font-s text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <div class="flex justify-between w-full h-full flex-col lg:flex-row ">
+                <div class="w-full h-auto px-3 lg:px-0 lg:w-3/6 flex flex-col">
+                    <img class="w-40 h-40  md:w-64 md:h-64 object-cover" style="clip-path: circle();" id="clientImg"
+                        src="{{ asset('web_assets/frontend/assets/clients/client1.PNG') }}" alt="client image">
+                    <h1 class="mt-5 text-3xl md:text-4xl primary-font-f" id="clientName">Abdur Rehman</h1>
+                    <p class="py-5 primary-font-s text-gray-400" id="clientFeedback">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Placeat
                         odio cupiditate ipsam? Repellat accusamus
                         maiores illum autem, laboriosam non atque omnis iste repudiandae hic provident rerum eius, fugit
                         labore in?
                     </p>
-                    <img class="w-[70%] h-auto mt-10 self-center"
-                        src="{{ asset('web_assets/frontend/assets/clients.PNG') }}" alt="clients images">
+                    <div class="flex h-auto relative mt-16 mb-20">
+                        <img class="w-20 h-20 mt-10  -ml-5 md:ml-0 self-center absolute z-0 cursor-pointer hover:w-24 hover:h-24 hover:z-50 transition-all object-cover" style="clip-path: circle(); left:10%;"
+                            src="{{ asset('web_assets/frontend/assets/clients/client1.PNG') }}" alt="clients images" data-client-id="client1" id='clientBTN'>
+
+                        <img class="w-20 h-20 mt-10   self-center absolute z-10 cursor-pointer hover:w-24 hover:h-24 hover:z-50 transition-all object-cover" style="clip-path: circle();left : 20%;"
+                            src="{{ asset('web_assets/frontend/assets/clients/client2.jpg') }}" alt="clients images" data-client-id="client2" id='clientBTN'>
+
+                        <img class="w-20 h-20 mt-10 ml-5 md:ml-0 self-center absolute z-20 cursor-pointer hover:w-24 hover:h-24 hover:z-50 transition-all object-cover" style="clip-path: circle();left : 30%; "
+                            src="{{ asset('web_assets/frontend/assets/clients/client3.jpg') }}" alt="clients images" data-client-id="client3" id='clientBTN'>
+
+                        <img class="w-20 h-20 mt-10 ml-8 md:ml-0 self-center absolute z-30 cursor-pointer hover:w-24 hover:h-24 hover:z-50 transition-all object-cover" style="clip-path: circle(); left:40%;"
+                            src="{{ asset('web_assets/frontend/assets/clients/client4.jpg') }}" alt="clients images" data-client-id="client4" id='clientBTN'>
+
+                        <img class="w-20 h-20 mt-10 self-center ml-14 md:ml-0 absolute z-40 cursor-pointer hover:w-24 hover:h-24 hover:z-50 transition-all object-cover" style="clip-path: circle(); left:50%; "
+                            src="{{ asset('web_assets/frontend/assets/clients/client5.jpg') }}" alt="clients images" data-client-id="client5" id='clientBTN'>
+
+                    </div>
                 </div>
-                <div class="w-full  lg:w-3/6 flex items-end">
+                <div class="w-full lg:w-3/6 flex items-end">
                     <img class="w-full h-[80%]" src="{{ asset('web_assets/frontend/assets/client_home.png') }}"
                         alt="">
                 </div>

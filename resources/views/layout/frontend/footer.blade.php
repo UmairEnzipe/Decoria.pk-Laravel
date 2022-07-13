@@ -1,13 +1,13 @@
 <!-- Footer -->
 <footer class="text-gray-600 body-font m-auto">
     <div
-        class="container px-5 md:px-32 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+        class="container px-5 md:px-32  py-24 mx-auto flex items-center  lg:flex-row  flex-wrap flex-col space-y-10">
         <div
-            class="w-full flex flex-col items-center  md:items-start md:w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left space-y-5">
+            class="w-full flex flex-col items-center  lg:items-start lg:w-64 flex-shrink-0 md:mx-0 mx-auto text-center lg:text-left space-y-5 ">
             <a href="/" class="">
                 <img src="{{ asset('web_assets/frontend/assets/logo.svg') }}" alt="">
             </a>
-            <p class="mt-2  text-gray-400 text-lg">Lorem ipsum dolor sit amet, amet elit adipiscing elit.
+            <p class="mt-2  text-gray-400 text-center lg:text-left text-lg">Lorem ipsum dolor sit amet, amet elit adipiscing elit.
                 Quisque nibh. Morbi placerat sit amet ultricies.</p>
         </div>
         <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">

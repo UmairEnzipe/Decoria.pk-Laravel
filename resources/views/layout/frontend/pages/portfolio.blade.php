@@ -3,11 +3,11 @@
 @section('content')
     <main>
         <!-- header -->
-        <section class="text-center space-y-8">
+        <section class="text-center space-y-8 px-3 sm:px-3">
             <h1 class="text-3xl sm:text-5xl primary-font-f font-bold">Residential Buildings</h1>
             <h2 class="text-2xl sm:text-4xl primary-font-f font-semibold">A Huge Collection of Houses for your Dream
                 Home</h2>
-            <p class="text-lg primary-font-s text-gray-400 m-auto w-full sm:w-7/12">Particleboard consists of fine
+            <p class="text-lg primary-font-s  text-gray-400 m-auto w-full sm:w-7/12">Particleboard consists of fine
                 wood chips mixed together in an adhesive matrix and allowed to harden under pressure. On top of the wall
                 plate
                 is placed either a second floor or the roof.</p>

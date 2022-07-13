@@ -5,8 +5,8 @@
         <section class="text-gray-600 body-font">
             @if ($errors->any())
                 <div class="flex justify-center">
-                    <h1 class="text-lg text-center text-green-700 py-2 px-5 rounded-2xl bg-green-50 w-fit">
-                        {{ $errors->first() }}
+                    <h1 class="text-lg text-center {{ $errors->all()[1] == 'danger' ? 'text-red-600 bg-red-50' : 'text-green-700 bg-green-50' }} py-2 px-5 rounded-2xl  w-fit capitalize">
+                        {{ $errors->first() }}.
                     </h1>
                 </div>
             @endif
